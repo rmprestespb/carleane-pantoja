@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Mais que uma massagem: um cuidado completo para o seu corpo e sua mente.",
+          "Massoterapia humanizada em Boa Vista/RR: relaxante, drenagem linfática, pedras quentes, ventosaterapia e mais. Agende sua sessão com Carleane Pantoja.",
       },
       { property: "og:url", content: "/" },
     ],

@@ -83,12 +83,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Massoterapia humanizada em Boa Vista/RR com Carleane Pantoja (Cacau): massagem relaxante, drenagem linfática, pedras quentes, ventosaterapia, dry needling e kinesio.",
+          "Massoterapia humanizada em Boa Vista/RR: relaxante, drenagem linfática, pedras quentes, ventosaterapia e mais. Agende sua sessão com Carleane Pantoja.",
       },
       { name: "author", content: "Carleane Pantoja" },
       { property: "og:site_name", content: "Carleane Pantoja Massoterapeuta" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Carleane Pantoja Massoterapeuta — O poder do toque que transforma" },
+      { name: "twitter:title", content: "Carleane Pantoja Massoterapeuta — O poder do toque que transforma" },
+      { property: "og:description", content: "Massoterapia humanizada em Boa Vista/RR: relaxante, drenagem linfática, pedras quentes, ventosaterapia e mais. Agende sua sessão com Carleane Pantoja." },
+      { name: "twitter:description", content: "Massoterapia humanizada em Boa Vista/RR: relaxante, drenagem linfática, pedras quentes, ventosaterapia e mais. Agende sua sessão com Carleane Pantoja." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e0073c8c-4ab0-4828-95e4-6ac010008be5/id-preview-5ef2a8fd--8a427734-ff88-47a1-87ea-88dcab0ebafb.lovable.app-1785329648700.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e0073c8c-4ab0-4828-95e4-6ac010008be5/id-preview-5ef2a8fd--8a427734-ff88-47a1-87ea-88dcab0ebafb.lovable.app-1785329648700.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
