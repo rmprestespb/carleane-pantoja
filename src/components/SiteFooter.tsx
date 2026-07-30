@@ -42,7 +42,7 @@ export function SiteFooter() {
                 to="/servicos"
                 className="text-foreground/80 hover:text-primary"
               >
-                Serviços & Tratamentos
+                Tabela de Preços
               </Link>
             </li>
             <li>
