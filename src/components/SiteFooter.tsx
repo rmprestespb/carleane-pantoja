@@ -91,9 +91,14 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border/60">
-        <div className="mx-auto max-w-6xl px-4 py-5 text-center text-xs text-muted-foreground md:px-6">
-          © {new Date().getFullYear()} Carleane Pantoja Massoterapeuta. Todos os
-          direitos reservados.
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 px-4 py-5 text-center text-xs text-muted-foreground md:flex-row md:justify-between md:px-6">
+          <span>
+            © {new Date().getFullYear()} Carleane Pantoja Massoterapeuta. Todos
+            os direitos reservados.
+          </span>
+          <Link to="/auth" className="hover:text-primary">
+            Acesso restrito
+          </Link>
         </div>
       </div>
     </footer>
