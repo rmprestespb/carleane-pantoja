@@ -1,8 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { Sparkles } from "lucide-react";
 import { WhatsAppButton } from "../components/WhatsAppButton";
-import { fetchServices, formatPrice, servicesQueryKey } from "@/lib/services";
+import { ServiceDetailDialog } from "../components/ServiceDetailDialog";
+import {
+  fetchServices,
+  formatPrice,
+  servicesQueryKey,
+  type Service,
+} from "@/lib/services";
 
 export const Route = createFileRoute("/servicos")({
   head: () => ({
