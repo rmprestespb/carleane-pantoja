@@ -84,14 +84,23 @@ function PrecosPage() {
           {services.map((service) => (
             <article
               key={service.id}
-              className="group flex flex-col overflow-hidden rounded-3xl border border-border/60 bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-soft)]"
+              role="button"
+              tabIndex={0}
+              onClick={() => setSelected(service)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setSelected(service);
+                }
+              }}
+              className="group flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-border/60 bg-card text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-soft)] focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               {service.image_url ? (
                 <img
                   src={service.image_url}
                   alt={`Sessão de ${service.name}`}
                   loading="lazy"
-                  className="h-48 w-full object-cover"
+                  className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
                 <div className="flex h-48 w-full items-center justify-center bg-primary/10 text-primary">
@@ -110,13 +119,22 @@ function PrecosPage() {
                 <p className="mt-5 font-serif text-3xl text-primary">
                   {formatPrice(service.price)}
                 </p>
-                <div className="mt-6 pt-1">
+                <p className="mt-2 text-xs uppercase tracking-[0.2em] text-primary/70">
+                  Toque para ver detalhes
+                </p>
+                <div className="mt-6 pt-1" onClick={(e) => e.stopPropagation()}>
                   <WhatsAppButton className="w-full">Agendar</WhatsAppButton>
                 </div>
               </div>
             </article>
           ))}
         </div>
+
+        <ServiceDetailDialog
+          service={selected}
+          open={selected !== null}
+          onOpenChange={(open) => !open && setSelected(null)}
+        />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-24 md:px-6">
