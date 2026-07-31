@@ -37,11 +37,13 @@ export const Route = createFileRoute("/servicos")({
 });
 
 function PrecosPage() {
-  const { data: services = [], isLoading, isError } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: servicesQueryKey,
     queryFn: fetchServices,
   });
+  const services = (data ?? []).filter((service) => service.is_visible);
   const [selected, setSelected] = useState<Service | null>(null);
+
 
 
 

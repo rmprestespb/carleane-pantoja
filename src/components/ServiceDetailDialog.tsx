@@ -7,6 +7,8 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { WhatsAppButton } from "./WhatsAppButton";
+import { RichText } from "./RichText";
+
 import { WHATSAPP_NUMBER } from "@/lib/site";
 import { formatPrice, type Service } from "@/lib/services";
 
@@ -54,10 +56,12 @@ export function ServiceDetailDialog({ service, open, onOpenChange }: Props) {
               </p>
 
               {service.detail && (
-                <p className="mx-auto mt-6 max-w-xl text-center text-base leading-relaxed text-muted-foreground">
-                  {service.detail}
-                </p>
+                <RichText
+                  text={service.detail}
+                  className="mx-auto mt-6 max-w-xl whitespace-pre-line text-center text-base leading-relaxed text-muted-foreground"
+                />
               )}
+
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 <div className="flex items-start gap-3 rounded-2xl border border-border/60 bg-background/60 p-4">
