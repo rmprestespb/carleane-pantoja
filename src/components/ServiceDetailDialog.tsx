@@ -7,6 +7,8 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { WhatsAppButton } from "./WhatsAppButton";
+import { RichText } from "./RichText";
+
 import { WHATSAPP_NUMBER } from "@/lib/site";
 import { formatPrice, type Service } from "@/lib/services";
 
