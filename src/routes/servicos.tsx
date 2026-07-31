@@ -41,6 +41,9 @@ function PrecosPage() {
     queryKey: servicesQueryKey,
     queryFn: fetchServices,
   });
+  const [selected, setSelected] = useState<Service | null>(null);
+
+
 
   return (
     <>
