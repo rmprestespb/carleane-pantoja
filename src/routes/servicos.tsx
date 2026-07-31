@@ -80,7 +80,7 @@ function PrecosPage() {
           </p>
         )}
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
           {services.map((service) => (
             <article
               key={service.id}
@@ -93,42 +93,40 @@ function PrecosPage() {
                   setSelected(service);
                 }
               }}
-              className="group flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-border/60 bg-card text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-soft)] focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-border/60 bg-card text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-soft)] focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               {service.image_url ? (
                 <img
                   src={service.image_url}
                   alt={`Sessão de ${service.name}`}
                   loading="lazy"
-                  className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-24 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-28"
                 />
               ) : (
-                <div className="flex h-48 w-full items-center justify-center bg-primary/10 text-primary">
-                  <Sparkles className="h-8 w-8" aria-hidden="true" />
+                <div className="flex h-24 w-full items-center justify-center bg-primary/10 text-primary sm:h-28">
+                  <Sparkles className="h-6 w-6" aria-hidden="true" />
                 </div>
               )}
-              <div className="flex flex-1 flex-col p-7">
-                <h2 className="font-serif text-2xl text-foreground">
+              <div className="flex flex-1 flex-col p-4">
+                <h2 className="font-serif text-base leading-snug text-foreground sm:text-lg">
                   {service.name}
                 </h2>
                 {service.detail && (
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted-foreground">
                     {service.detail}
                   </p>
                 )}
-                <p className="mt-5 font-serif text-3xl text-primary">
+                <p className="mt-auto pt-3 font-serif text-xl text-primary sm:text-2xl">
                   {formatPrice(service.price)}
                 </p>
-                <p className="mt-2 text-xs uppercase tracking-[0.2em] text-primary/70">
-                  Toque para ver detalhes
+                <p className="mt-1 text-[0.6rem] uppercase tracking-[0.18em] text-primary/70">
+                  Ver detalhes
                 </p>
-                <div className="mt-6 pt-1" onClick={(e) => e.stopPropagation()}>
-                  <WhatsAppButton className="w-full">Agendar</WhatsAppButton>
-                </div>
               </div>
             </article>
           ))}
         </div>
+
 
         <ServiceDetailDialog
           service={selected}
