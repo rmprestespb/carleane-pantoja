@@ -20,6 +20,7 @@ export type Database = {
           detail: string | null
           id: string
           image_url: string | null
+          is_visible: boolean
           name: string
           price: number
           sort_order: number
@@ -30,6 +31,7 @@ export type Database = {
           detail?: string | null
           id?: string
           image_url?: string | null
+          is_visible?: boolean
           name: string
           price?: number
           sort_order?: number
@@ -40,6 +42,7 @@ export type Database = {
           detail?: string | null
           id?: string
           image_url?: string | null
+          is_visible?: boolean
           name?: string
           price?: number
           sort_order?: number
