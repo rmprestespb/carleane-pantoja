@@ -14,11 +14,12 @@ type Props = {
 
 const items = [
   { label: "Início", icon: Home, to: "/" as const },
-  { label: "Gerenciar serviços", icon: SlidersHorizontal, active: true },
-  { label: "Agendamentos", icon: CalendarDays, soon: true },
+  { label: "Gerenciar serviços", icon: SlidersHorizontal, to: "/admin" as const },
+  { label: "Agendamentos", icon: CalendarDays, to: "/agendamentos" as const },
   { label: "Clientes", icon: Users, soon: true },
   { label: "Configurações", icon: Settings, soon: true },
 ];
+
 
 export function AdminSidebar({ onSignOut }: Props) {
   const base =
@@ -34,19 +35,19 @@ export function AdminSidebar({ onSignOut }: Props) {
       <nav className="mt-8 flex flex-col gap-1">
         {items.map((item) =>
           item.to ? (
-            <Link key={item.label} to={item.to} className={`${base} hover:bg-white/10`}>
+            <Link
+              key={item.label}
+              to={item.to}
+              activeOptions={{ exact: true }}
+              className={`${base} text-white/75 hover:bg-white/10`}
+              activeProps={{
+                className: `${base} bg-primary/25 font-medium text-[oklch(0.88_0.07_20)]`,
+              }}
+            >
               <item.icon className="h-4 w-4" aria-hidden="true" /> {item.label}
             </Link>
           ) : (
-            <span
-              key={item.label}
-              aria-current={item.active ? "page" : undefined}
-              className={`${base} ${
-                item.active
-                  ? "bg-primary/25 font-medium text-[oklch(0.88_0.07_20)]"
-                  : "text-white/50"
-              }`}
-            >
+            <span key={item.label} className={`${base} text-white/50`}>
               <item.icon className="h-4 w-4" aria-hidden="true" /> {item.label}
               {item.soon && (
                 <span className="ml-auto text-[0.6rem] uppercase tracking-wider text-white/35">
@@ -56,6 +57,7 @@ export function AdminSidebar({ onSignOut }: Props) {
             </span>
           ),
         )}
+
       </nav>
 
       <button

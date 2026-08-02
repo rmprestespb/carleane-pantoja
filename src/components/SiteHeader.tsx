@@ -7,8 +7,10 @@ import { cn } from "../lib/utils";
 const nav = [
   { to: "/", label: "Início" },
   { to: "/servicos", label: "Preços" },
+  { to: "/agendar", label: "Agendar" },
   { to: "/sobre", label: "Sobre & Contato" },
 ] as const;
+
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
