@@ -14,11 +14,12 @@ type Props = {
 
 const items = [
   { label: "Início", icon: Home, to: "/" as const },
-  { label: "Gerenciar serviços", icon: SlidersHorizontal, active: true },
-  { label: "Agendamentos", icon: CalendarDays, soon: true },
+  { label: "Gerenciar serviços", icon: SlidersHorizontal, to: "/admin" as const },
+  { label: "Agendamentos", icon: CalendarDays, to: "/agendamentos" as const },
   { label: "Clientes", icon: Users, soon: true },
   { label: "Configurações", icon: Settings, soon: true },
 ];
+
 
 export function AdminSidebar({ onSignOut }: Props) {
   const base =
