@@ -97,18 +97,24 @@ function PrecosPage() {
               }}
               className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-border/60 bg-card text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-soft)] focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              {service.image_url ? (
-                <img
-                  src={service.image_url}
-                  alt={`Sessão de ${service.name}`}
-                  loading="lazy"
-                  className="h-24 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-28"
-                />
-              ) : (
-                <div className="flex h-24 w-full items-center justify-center bg-primary/10 text-primary sm:h-28">
-                  <Sparkles className="h-6 w-6" aria-hidden="true" />
-                </div>
-              )}
+              <div className="relative">
+                {service.image_url ? (
+                  <img
+                    src={service.image_url}
+                    alt={`Sessão de ${service.name}`}
+                    loading="lazy"
+                    className="h-24 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-28"
+                  />
+                ) : (
+                  <div className="flex h-24 w-full items-center justify-center bg-primary/10 text-primary sm:h-28">
+                    <Sparkles className="h-6 w-6" aria-hidden="true" />
+                  </div>
+                )}
+                <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/70 to-transparent px-3 py-1.5 font-serif text-sm leading-tight text-background sm:text-base">
+                  {service.name}
+                </p>
+              </div>
+
               <div className="flex flex-1 flex-col p-4">
                 <h2 className="font-serif text-base leading-snug text-foreground sm:text-lg">
                   {service.name}
