@@ -16,7 +16,7 @@ const items = [
   { label: "Início", icon: Home, to: "/" as const },
   { label: "Gerenciar serviços", icon: SlidersHorizontal, to: "/admin" as const },
   { label: "Agendamentos", icon: CalendarDays, to: "/agendamentos" as const },
-  { label: "Clientes", icon: Users, soon: true },
+  { label: "Clientes", icon: Users, to: "/clientes" as const },
   { label: "Configurações", icon: Settings, soon: true },
 ];
 
