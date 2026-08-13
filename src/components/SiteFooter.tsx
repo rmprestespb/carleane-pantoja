@@ -50,7 +50,15 @@ export function SiteFooter() {
                 to="/sobre"
                 className="text-foreground/80 hover:text-primary"
               >
-                Sobre & Contato
+                Sobre mim
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contato"
+                className="text-foreground/80 hover:text-primary"
+              >
+                Contato
               </Link>
             </li>
           </ul>
