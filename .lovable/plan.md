@@ -1,67 +1,63 @@
-## Site Carleane Pantoja Massoterapeuta — 3 páginas
+# Dividir "Sobre & Contato" em "Sobre mim" e "Contato"
 
-Site institucional em TanStack Start com 3 rotas, design clean/spa, foco em conversão via WhatsApp.
+## O que será feito
 
-### Design System (src/styles.css)
-- Paleta (oklch):
-  - background: creme/off-white (`oklch(0.98 0.012 85)`)
-  - card: bege suave (`oklch(0.95 0.018 80)`)
-  - primary: rosa seco / dusty rose (`oklch(0.72 0.055 15)`)
-  - accent: verde menta/esmeralda suave (`oklch(0.78 0.06 165)`)
-  - foreground: marrom escuro (`oklch(0.28 0.03 40)`)
-  - muted-foreground: cinza chumbo (`oklch(0.45 0.015 40)`)
-- Fontes carregadas via `<link>` em `__root.tsx`:
-  - Títulos: **Cormorant Garamond** (serifada elegante)
-  - Corpo: **Inter** (sans-serif moderna)
-- Cards: bordas arredondadas (radius ~1rem), sombras suaves.
+- Separar a seção atual de Sobre & Contato em duas páginas distintas:
+  - **Sobre mim** (`/sobre`): nova biografia com o texto enviado.
+  - **Contato** (`/contato`): dados de contato, WhatsApp, Instagram e endereço.
+- Atualizar o menu do site (header desktop/mobile) e o rodapé para exibir os dois links separados.
+- Manter a identidade visual, imagens e SEO de cada rota.
 
-### Estrutura de rotas
-```
-src/routes/
-  __root.tsx        (header + footer compartilhados, fontes, meta base)
-  index.tsx         (Home — substitui placeholder)
-  servicos.tsx      (Serviços & Tratamentos)
-  sobre.tsx         (Sobre & Contato)
-```
+## Mudanças por arquivo
 
-Cada rota define seu próprio `head()` com título/description/og únicos.
+1. `src/routes/sobre.tsx`
+   - Atualizar o título para "Sobre mim — Carleane Pantoja Massoterapeuta".
+   - Substituir o texto da seção "Sobre mim" pelo novo fornecido.
+   - Remover a seção de agendamento/contato (ela vai para a nova rota).
+   - Manter a imagem `about-spa.jpg` e o layout com gradiente de fundo.
+   - Atualizar meta tags e canonical para `/sobre`.
 
-WhatsApp link: `https://wa.me/5546991188015?text=Olá%20Carleane...`
+2. `src/routes/contato.tsx` (novo)
+   - Criar rota `/contato`.
+   - Título: "Contato — Carleane Pantoja Massoterapeuta".
+   - Exibir os cards de WhatsApp, Instagram e endereço, reutilizando as constantes de `src/lib/site.ts`.
+   - Incluir CTA principal "Agendar via WhatsApp".
+   - Reutilizar o estilo visual da seção de contato atual (rounded cards, gradientes, sombras).
+   - Adicionar meta tags e canonical para `/contato`.
 
-### Componentes reutilizáveis (src/components/)
-- `SiteHeader.tsx` — logo + nav (Home / Serviços / Sobre) + CTA "Agendar Sessão"
-- `SiteFooter.tsx` — marca, links, contatos, redes, copyright
-- `BenefitCard.tsx` — card com ícone Lucide + título + texto
-- `ServiceCard.tsx` — card de serviço com ícone, título, descrição
-- `WhatsAppButton.tsx` — botão CTA reutilizável
+3. `src/components/SiteHeader.tsx`
+   - Substituir o item `{ to: "/sobre", label: "Sobre & Contato" }` por:
+     - `{ to: "/sobre", label: "Sobre mim" }`
+     - `{ to: "/contato", label: "Contato" }`
+   - Garantir que o menu mobile também exiba os dois itens.
 
-Header/Footer renderizados em `__root.tsx` em torno do `<Outlet />`.
+4. `src/components/SiteFooter.tsx`
+   - Dividir o link "Sobre & Contato" em "Sobre mim" (`/sobre`) e "Contato" (`/contato`).
+   - Manter a coluna de Contato com WhatsApp, Instagram e endereço.
 
-### Página 1 — Home (`/`)
-1. Hero: título serifado "O Poder do Toque que Transforma", subtítulo, CTA WhatsApp, imagem lateral (spa/massagem).
-2. Grid de 4 benefícios (ícones Lucide: Sparkles, HeartPulse, Activity, Leaf).
-3. Banner motivacional em tom rosé/verde com frase destacada em serifa.
+5. Roteamento
+   - A nova rota `src/routes/contato.tsx` será reconhecida automaticamente pelo TanStack Router; `src/routeTree.gen.ts` será regenerado no build.
 
-### Página 2 — Serviços (`/servicos`)
-- Cabeçalho "Nossos Serviços".
-- Grid responsivo (3 col desktop, 1 col mobile) com 6 cards: Massagem Relaxante, Drenagem Linfática, Pedras Quentes, Ventosaterapia, Dry Needling, Kinesio.
-- Seção destaque "Combo Queridinho" (card grande com fundo em accent) + botão WhatsApp.
+## Texto que será aplicado em `/sobre`
 
-### Página 3 — Sobre & Contato (`/sobre`)
-- Bloco Sobre: título "Conheça Carleane Pantoja (Cacau)", bio, foto/ilustração.
-- Bloco Agendamento: frase destacada, lista de contatos (WhatsApp, Instagram, endereço Fisiocenter — Boa Vista/RR), CTA "FALAR NO WHATSAPP E AGENDAR".
+Título: **Carleane Pantoja | Massoterapeuta**
 
-### Assets
-Gerar 3 imagens (fast tier, JPG) em `src/assets/`:
-- `hero-massage.jpg` — cena de massagem relaxante
-- `banner-stones.jpg` — pedras quentes / velas
-- `about-carleane.jpg` — ambiente de spa acolhedor (retrato ilustrativo neutro; sem inventar rosto real)
+> Sou Carleane Pantoja, boa-vistense e massoterapeuta, apaixonada pelo cuidado com o corpo, pela saúde e pelo bem-estar das pessoas.
+>
+> Atuo com foco em regeneração e recuperação muscular, utilizando técnicas de massoterapia que auxiliam no relaxamento, na redução de tensões e desconfortos musculares, na recuperação do corpo e na promoção de uma melhor qualidade de vida.
+>
+> Acredito que cada pessoa possui necessidades únicas. Por isso, meu trabalho é realizado de forma acolhedora, humanizada e personalizada, buscando compreender o momento e as necessidades de cada cliente para proporcionar uma experiência de cuidado completa.
+>
+> Mais do que aliviar tensões e promover relaxamento, meu propósito é proporcionar momentos de equilíbrio, leveza e conexão com o próprio corpo.
+>
+> Cada atendimento é uma oportunidade de cuidar, acolher e contribuir para que você se sinta melhor — física e emocionalmente.
+>
+> Cuidar do corpo é também cuidar de si.
 
-### SEO
-- Cada rota: `title`, `description`, `og:title`, `og:description`, `og:type=website`, `twitter:card`.
-- Single H1 por página, HTML semântico, alt text nas imagens.
+## Resultado esperado
 
-### Fora de escopo
-- Sem backend / Lovable Cloud (site institucional estático).
-- Sem formulário de contato — conversão via WhatsApp direto.
-- Sem dark mode dedicado (paleta clara premium).
+- Menu principal: Início | Preços | Agendar | Sobre mim | Contato
+- Rodapé com links separados para Sobre mim e Contato
+- `/sobre` com a nova biografia e imagem de destaque
+- `/contato` com os canais de contato e botão de agendamento
+- SEO único e canonical correto para cada rota
