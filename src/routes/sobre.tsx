@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Heart } from "lucide-react";
-import aboutImg from "../assets/about-spa.jpg";
+import aboutImg from "../assets/about-carleane.jpg.asset.json";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
@@ -36,10 +36,10 @@ function SobrePage() {
           <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-accent/25 via-primary/20 to-transparent blur-2xl" />
           <div className="relative overflow-hidden rounded-[2rem] border border-border/60 shadow-[0_30px_80px_-30px_rgba(120,60,60,0.35)]">
             <img
-              src={aboutImg}
-              alt="Ambiente aconchegante de atendimento em massoterapia com toalhas, velas e orquídea"
-              width={1200}
-              height={1400}
+              src={aboutImg.url}
+              alt="Carleane Pantoja, massoterapeuta em Boa Vista/RR"
+              width={1023}
+              height={1537}
               loading="lazy"
               className="h-full w-full object-cover"
             />
