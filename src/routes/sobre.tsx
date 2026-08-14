@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Heart } from "lucide-react";
-import aboutImg from "../assets/about-carleane.jpg.asset.json";
+import aboutDesktop from "../assets/about-carleane-desktop.jpg.asset.json";
+import aboutMobile from "../assets/about-carleane-mobile.jpg.asset.json";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
