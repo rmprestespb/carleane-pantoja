@@ -36,14 +36,24 @@ function SobrePage() {
         <div className="relative order-2 md:order-1">
           <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-accent/25 via-primary/20 to-transparent blur-2xl" />
           <div className="relative overflow-hidden rounded-[2rem] border border-border/60 shadow-[0_30px_80px_-30px_rgba(120,60,60,0.35)]">
-            <img
-              src={aboutImg.url}
-              alt="Carleane Pantoja, massoterapeuta em Boa Vista/RR"
-              width={1023}
-              height={1537}
-              loading="lazy"
-              className="h-full w-full object-cover"
-            />
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcSet={aboutDesktop.url}
+                width={900}
+                height={1200}
+              />
+              <img
+                src={aboutMobile.url}
+                alt="Carleane Pantoja, massoterapeuta em Boa Vista/RR"
+                width={800}
+                height={1000}
+                loading="lazy"
+                decoding="async"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="aspect-[4/5] w-full object-cover object-top md:aspect-[3/4]"
+              />
+            </picture>
           </div>
         </div>
 
