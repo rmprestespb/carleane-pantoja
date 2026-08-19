@@ -37,7 +37,7 @@ function SobrePage() {
           <div className="relative overflow-hidden rounded-[2rem] border border-border/60 shadow-[0_30px_80px_-30px_rgba(120,60,60,0.35)]">
             <img
               src={aboutPhoto}
-              alt="Carleane Pantoja, massoterapeuta em Boa Vista/RR"
+              alt="Carleane Pantoja, massoterapeuta em Boa Vista/RR."
               width={1023}
               height={1537}
               loading="lazy"
