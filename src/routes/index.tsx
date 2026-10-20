@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Sparkles, HeartPulse, Activity, Leaf } from "lucide-react";
-import heroImg from "../assets/hero-massage.jpg";
+import spaSet from "../assets/hero-spa-blob.webp";
+import heroBg from "../assets/hero-bg-texture.webp";
 import stonesImg from "../assets/banner-stones.jpg";
 import decoLeft from "../assets/hero-deco-left.webp";
 import decoRightTop from "../assets/hero-deco-right-top.webp";
@@ -62,6 +63,7 @@ function Index() {
       {/* Hero */}
       <section className="relative -mt-[73px] overflow-hidden pt-[73px]">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <img src={heroBg} alt="" className="absolute inset-0 h-full w-full object-cover [mask-image:linear-gradient(to_bottom,black_80%,transparent)]" />
           <img src={decoLeft} alt="" className="absolute left-0 top-0 hidden w-[17vw] max-w-[345px] lg:block" />
           <img src={decoRightTop} alt="" className="absolute right-0 top-0 hidden w-[265px] lg:block" />
           <img src={decoRightBottom} alt="" className="absolute bottom-0 right-0 hidden w-[425px] lg:block" />
@@ -93,16 +95,13 @@ function Index() {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/25 via-accent/20 to-transparent blur-2xl" />
-            <div className="relative overflow-hidden rounded-[2rem] border border-border/60 shadow-[0_30px_80px_-30px_rgba(40,80,70,0.35)]">
-              <img
-                src={heroImg}
-                alt="Ambiente sereno de massoterapia com pétalas de rosa, toalhas e óleo essencial"
-                width={1400}
-                height={1400}
-                className="aspect-[590/540] h-full w-full object-cover object-[50%_30%]"
-              />
-            </div>
+            <img
+              src={spaSet}
+              alt="Pedras quentes de basalto, velas acesas, óleo e lavanda sobre toalha rosada"
+              width={1243}
+              height={1045}
+              className="relative mx-auto w-full max-w-[640px] lg:-mr-[6vw] lg:ml-auto lg:max-w-[780px]"
+            />
           </div>
         </div>
       </section>
