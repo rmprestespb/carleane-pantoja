@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Sparkles, HeartPulse, Activity, Leaf } from "lucide-react";
 import spaSet from "../assets/hero-spa-blob.webp";
 import heroBg from "../assets/hero-bg-texture.webp";
+import logoCarleane from "../assets/logo-carleane.webp";
 import stonesImg from "../assets/banner-stones.jpg";
 import decoLeft from "../assets/hero-deco-left.webp";
 import decoRightTop from "../assets/hero-deco-right-top.webp";
@@ -69,6 +70,14 @@ function Index() {
           <img src={decoRightBottom} alt="" className="absolute bottom-0 right-0 hidden w-[425px] lg:block" />
           <img src={decoBottom} alt="" className="absolute bottom-0 left-0 w-[640px] max-w-full lg:w-[1100px]" />
         </div>
+
+        <img
+          src={logoCarleane}
+          alt="Logo Carleane Pantoja Massoterapeuta"
+          width={720}
+          height={787}
+          className="relative z-10 mx-auto -mb-8 mt-6 w-32 min-[1280px]:absolute min-[1280px]:mb-0 min-[1280px]:left-1/2 min-[1280px]:top-[92px] min-[1280px]:mt-0 min-[1280px]:w-[190px] min-[1280px]:-translate-x-1/2"
+        />
 
         <div className="relative mx-auto grid max-w-[1280px] gap-12 px-4 py-16 md:grid-cols-2 md:items-center md:px-6 md:py-24 lg:pl-[6vw] min-[1700px]:pl-6">
           <div>
