@@ -26,9 +26,9 @@ export function AdminSidebar({ onSignOut }: Props) {
     "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-colors";
 
   return (
-    <aside className="sticky top-0 hidden h-screen w-60 shrink-0 flex-col bg-[oklch(0.289_0.024_192)] p-5 text-[oklch(0.936_0.013_142)] lg:flex">
+    <aside className="sticky top-0 hidden h-screen w-60 shrink-0 flex-col bg-[oklch(0.28_0.03_40)] p-5 text-[oklch(0.93_0.02_80)] lg:flex">
       <p className="px-1 font-serif text-lg leading-tight">Carleane Pantoja</p>
-      <p className="px-1 text-[0.65rem] uppercase tracking-[0.2em] text-[oklch(0.796_0.035_163)]">
+      <p className="px-1 text-[0.65rem] uppercase tracking-[0.2em] text-[oklch(0.8_0.05_20)]">
         Massoterapeuta
       </p>
 
@@ -41,7 +41,7 @@ export function AdminSidebar({ onSignOut }: Props) {
               activeOptions={{ exact: true }}
               className={`${base} text-white/75 hover:bg-white/10`}
               activeProps={{
-                className: `${base} bg-primary/25 font-medium text-[oklch(0.899_0.029_157)]`,
+                className: `${base} bg-primary/25 font-medium text-[oklch(0.88_0.07_20)]`,
               }}
             >
               <item.icon className="h-4 w-4" aria-hidden="true" /> {item.label}

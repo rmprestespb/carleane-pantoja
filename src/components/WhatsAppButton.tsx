@@ -25,7 +25,7 @@ export function WhatsAppButton({
   };
   const variants = {
     primary:
-      "bg-primary text-primary-foreground shadow-[0_10px_30px_-12px_var(--primary)] hover:bg-primary-deep hover:-translate-y-0.5",
+      "bg-primary text-primary-foreground shadow-[0_10px_30px_-12px_var(--primary)] hover:bg-primary/90 hover:-translate-y-0.5",
     outline:
       "border border-primary/40 bg-transparent text-primary hover:bg-primary/10",
     accent:

@@ -17,7 +17,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/40 bg-background/70 shadow-[0_8px_30px_-18px_rgba(40,80,70,0.3)] backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
         <Link to="/" className="group flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-primary">
@@ -42,7 +42,7 @@ export function SiteHeader() {
               className={cn(
                 "text-sm text-muted-foreground transition-colors hover:text-primary",
               )}
-              activeProps={{ className: "font-medium text-primary-deep" }}
+              activeProps={{ className: "text-primary" }}
             >
               {item.label}
             </Link>
