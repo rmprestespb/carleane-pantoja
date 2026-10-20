@@ -34,7 +34,7 @@ function SobrePage() {
       <div className="grid gap-12 md:grid-cols-2 md:items-center">
         <div className="relative order-2 md:order-1">
           <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-accent/25 via-primary/20 to-transparent blur-2xl" />
-          <div className="relative overflow-hidden rounded-[2rem] border border-border/60 shadow-[0_30px_80px_-30px_rgba(120,60,60,0.35)]">
+          <div className="relative overflow-hidden rounded-[2rem] border border-border/60 shadow-[0_30px_80px_-30px_rgba(40,80,70,0.35)]">
             <img
               src={aboutPhoto}
               alt="Carleane Pantoja, massoterapeuta em Boa Vista/RR."

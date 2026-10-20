@@ -2,6 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Sparkles, HeartPulse, Activity, Leaf } from "lucide-react";
 import heroImg from "../assets/hero-massage.jpg";
 import stonesImg from "../assets/banner-stones.jpg";
+import decoLeft from "../assets/hero-deco-left.webp";
+import decoRightTop from "../assets/hero-deco-right-top.webp";
+import decoRightBottom from "../assets/hero-deco-right-bottom.webp";
+import decoBottom from "../assets/hero-deco-bottom.webp";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 
 export const Route = createFileRoute("/")({
@@ -56,20 +60,24 @@ function Index() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute -left-32 top-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
-        <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-accent/20 blur-3xl" />
+      <section className="relative -mt-[73px] overflow-hidden pt-[73px]">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <img src={decoLeft} alt="" className="absolute left-0 top-0 hidden w-[17vw] max-w-[345px] lg:block" />
+          <img src={decoRightTop} alt="" className="absolute right-0 top-0 hidden w-[265px] lg:block" />
+          <img src={decoRightBottom} alt="" className="absolute bottom-0 right-0 hidden w-[425px] lg:block" />
+          <img src={decoBottom} alt="" className="absolute bottom-0 left-0 w-[640px] max-w-full lg:w-[1100px]" />
+        </div>
 
-        <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 md:grid-cols-2 md:items-center md:px-6 md:py-24">
+        <div className="relative mx-auto grid max-w-[1280px] gap-12 px-4 py-16 md:grid-cols-2 md:items-center md:px-6 md:py-24 lg:pl-[6vw] min-[1700px]:pl-6">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-primary">
+            <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary-deep">
               <Flower /> Massoterapia humanizada
             </span>
-            <h1 className="mt-6 font-serif text-5xl leading-[1.05] text-foreground md:text-6xl lg:text-7xl">
+            <h1 className="mt-6 max-w-[6.6em] font-serif text-5xl leading-[1.05] text-foreground md:text-6xl lg:text-[5.25rem]">
               O poder do toque que{" "}
-              <span className="italic text-primary">transforma</span>.
+              <span className="italic text-primary-deep">transforma</span>.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-6 max-w-[36rem] text-lg leading-relaxed text-foreground/85">
               Mais que uma massagem, um cuidado completo para o seu corpo e sua
               mente. Sessões acolhedoras em Boa Vista — RR.
             </p>
@@ -77,7 +85,7 @@ function Index() {
               <WhatsAppButton size="lg">Agendar sua sessão</WhatsAppButton>
               <a
                 href="/servicos"
-                className="inline-flex items-center justify-center rounded-full border border-primary/30 bg-transparent px-6 py-3.5 text-base font-medium text-primary transition-all hover:bg-primary/10"
+                className="inline-flex items-center justify-center rounded-full border border-primary/50 bg-transparent px-6 py-3.5 text-base font-medium text-primary-deep transition-all hover:bg-primary/10"
               >
                 Ver tratamentos
               </a>
@@ -86,13 +94,13 @@ function Index() {
 
           <div className="relative">
             <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/25 via-accent/20 to-transparent blur-2xl" />
-            <div className="relative overflow-hidden rounded-[2rem] border border-border/60 shadow-[0_30px_80px_-30px_rgba(120,60,60,0.35)]">
+            <div className="relative overflow-hidden rounded-[2rem] border border-border/60 shadow-[0_30px_80px_-30px_rgba(40,80,70,0.35)]">
               <img
                 src={heroImg}
                 alt="Ambiente sereno de massoterapia com pétalas de rosa, toalhas e óleo essencial"
                 width={1400}
                 height={1400}
-                className="h-full w-full object-cover"
+                className="aspect-[590/540] h-full w-full object-cover object-[50%_30%]"
               />
             </div>
           </div>
@@ -141,13 +149,13 @@ function Index() {
             loading="lazy"
             className="h-[420px] w-full object-cover md:h-[520px]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.2_0.03_30_/_0.75)] via-[oklch(0.2_0.03_30_/_0.45)] to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.25_0.04_185_/_0.78)] via-[oklch(0.25_0.04_185_/_0.45)] to-transparent" />
           <div className="absolute inset-0 flex items-center">
             <div className="max-w-xl px-8 md:px-14">
-              <p className="text-xs uppercase tracking-[0.25em] text-[oklch(0.95_0.02_60)]">
+              <p className="text-xs uppercase tracking-[0.25em] text-[oklch(0.95_0.02_100)]">
                 Uma pausa merecida
               </p>
-              <p className="mt-4 font-serif text-3xl leading-tight text-[oklch(0.98_0.01_60)] md:text-4xl lg:text-5xl">
+              <p className="mt-4 font-serif text-3xl leading-tight text-[oklch(0.98_0.01_100)] md:text-4xl lg:text-5xl">
                 “Todo mundo merece um dia para relaxar. Cuidar de quem você ama
                 também é se permitir descansar.”
               </p>
