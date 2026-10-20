@@ -109,7 +109,7 @@ function Index() {
               alt="Pedras quentes de basalto, velas acesas, óleo e lavanda sobre toalha rosada"
               width={1243}
               height={1045}
-              className="relative mx-auto w-full max-w-[640px] lg:-mr-[6vw] lg:ml-auto lg:max-w-[780px]"
+              className="relative mx-auto w-full max-w-[640px] lg:-mr-[8vw] lg:-my-8 lg:ml-auto lg:w-[122%] lg:max-w-none"
             />
           </div>
         </div>
