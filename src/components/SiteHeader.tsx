@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Flower2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logoLotus from "../assets/logo-lotus.webp";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { cn } from "../lib/utils";
 
@@ -20,9 +21,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border/40 bg-background/70 shadow-[0_8px_30px_-18px_rgba(40,80,70,0.3)] backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
         <Link to="/" className="group flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-primary">
-            <Flower2 className="h-5 w-5" aria-hidden="true" />
-          </span>
+          <img src={logoLotus} alt="" width={40} height={40} className="h-10 w-10 shrink-0 rounded-xl" />
           <span className="flex flex-col leading-tight">
             <span className="font-serif text-lg text-foreground">
               Carleane Pantoja

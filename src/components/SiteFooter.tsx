@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Flower2, Instagram, MessageCircle, MapPin } from "lucide-react";
+import { Instagram, MessageCircle, MapPin } from "lucide-react";
+import logoLotus from "../assets/logo-lotus.webp";
 import {
   CLINIC_ADDRESS,
   INSTAGRAM_HANDLE,
@@ -14,9 +15,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3 md:px-6">
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-primary">
-              <Flower2 className="h-5 w-5" aria-hidden="true" />
-            </span>
+            <img src={logoLotus} alt="" width={40} height={40} className="h-10 w-10 shrink-0 rounded-xl" />
             <span className="font-serif text-lg text-foreground">
               Carleane Pantoja
             </span>
