@@ -6,7 +6,7 @@
 
 /*
  * Carleane Pantoja Massoterapeuta — design tokens
- * Palette: creme/off-white, dusty rose, verde menta, marrom escuro
+ * Palette: creme, verde sálvia/eucalipto, verde profundo, detalhes dourados
  */
 
 @theme inline {
@@ -39,34 +39,36 @@
   --color-ring-offset-background: var(--background);
   --color-cream: var(--cream);
   --color-rose-soft: var(--rose-soft);
-  --font-serif-display: "Cormorant Garamond", ui-serif, Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-primary-deep: var(--primary-deep);
+  --font-serif-display: "Newsreader", ui-serif, Georgia, serif;
+  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
   --shadow-soft: 0 10px 40px -12px color-mix(in oklab, var(--primary) 25%, transparent);
 }
 
 :root {
   --radius: 1rem;
-  --background: oklch(0.985 0.012 85);
-  --foreground: oklch(0.28 0.03 40);
-  --card: oklch(0.97 0.014 80);
-  --card-foreground: oklch(0.28 0.03 40);
-  --popover: oklch(0.985 0.012 85);
-  --popover-foreground: oklch(0.28 0.03 40);
-  --primary: oklch(0.72 0.06 15);
-  --primary-foreground: oklch(0.99 0.005 85);
-  --secondary: oklch(0.93 0.03 20);
-  --secondary-foreground: oklch(0.32 0.04 30);
-  --muted: oklch(0.94 0.012 80);
-  --muted-foreground: oklch(0.48 0.02 40);
-  --accent: oklch(0.82 0.06 165);
-  --accent-foreground: oklch(0.28 0.05 165);
+  --background: oklch(0.968 0.014 89);
+  --foreground: oklch(0.255 0.027 216);
+  --card: oklch(0.985 0.008 91);
+  --card-foreground: oklch(0.255 0.027 216);
+  --popover: oklch(0.985 0.008 91);
+  --popover-foreground: oklch(0.255 0.027 216);
+  --primary: oklch(0.543 0.049 172);
+  --primary-foreground: oklch(0.984 0.007 97);
+  --secondary: oklch(0.941 0.015 136);
+  --secondary-foreground: oklch(0.399 0.042 175);
+  --muted: oklch(0.932 0.021 89);
+  --muted-foreground: oklch(0.483 0.008 174);
+  --accent: oklch(0.898 0.02 143);
+  --accent-foreground: oklch(0.407 0.047 179);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.9 0.02 60);
-  --input: oklch(0.9 0.02 60);
-  --ring: oklch(0.72 0.06 15);
-  --cream: oklch(0.96 0.02 85);
-  --rose-soft: oklch(0.9 0.04 20);
+  --border: oklch(0.89 0.026 87);
+  --input: oklch(0.89 0.026 87);
+  --ring: oklch(0.543 0.049 172);
+  --cream: oklch(0.949 0.019 91);
+  --primary-deep: oklch(0.456 0.049 184);
+  --rose-soft: oklch(0.92 0.025 143);
 }
 
 @layer base {
