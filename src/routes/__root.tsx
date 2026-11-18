@@ -4,10 +4,14 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { festaAtivo, reveillonAtivo, temaEpoca } from "../lib/natal";
+import { NatalDecor } from "../components/NatalDecor";
+import { DescontoCard } from "../components/DescontoCard";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -107,6 +111,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Roboto:wght@300;400;500;700&display=swap",
       },
+      ...(festaAtivo()
+        ? [
+            {
+              rel: "stylesheet",
+              href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap",
+            },
+          ]
+        : []),
     ],
   }),
   shellComponent: RootShell,
@@ -115,9 +127,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+function classesTema() {
+  const t = temaEpoca();
+  return t === "reveillon" ? "natal reveillon" : t === "natal" ? "natal" : "";
+}
+
+function FaixaReveillon() {
+  if (!reveillonAtivo()) return null;
+  return (
+    <div className="natal-faixa px-4 py-2 text-center text-sm font-medium tracking-wide">
+      ✦ Feliz {new Date().getFullYear() + 1}! Que o novo ano chegue com leveza ✦
+    </div>
+  );
+}
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={classesTema() || undefined}>
       <head>
         <HeadContent />
       </head>
@@ -131,16 +157,31 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  // O tema de Natal vale para as páginas públicas; o painel da Carleane mantém as cores normais.
+  useEffect(() => {
+    const painel = /^\/(admin|agendamentos|clientes)(\/|$)/.test(pathname);
+    const html = document.documentElement.classList;
+    const tema = painel ? null : temaEpoca();
+    html.toggle("natal", tema !== null);
+    html.toggle("reveillon", tema === "reveillon");
+  }, [pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-screen flex-col bg-background">
+        <FaixaReveillon />
         <SiteHeader />
-        <main className="flex-1">
-          <Outlet />
+        <main className="relative flex-1">
+          <NatalDecor />
+          <div className="relative z-10">
+            <Outlet />
+          </div>
         </main>
         <SiteFooter />
       </div>
+      <DescontoCard />
       <Toaster />
     </QueryClientProvider>
   );

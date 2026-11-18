@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, MessageCircle, MapPin } from "lucide-react";
+import { festaAtivo, reveillonAtivo } from "../lib/natal";
+import { guirlanda } from "./NatalDecor";
 import logoLotus from "../assets/logo-lotus.webp";
 import {
   CLINIC_ADDRESS,
@@ -11,7 +13,14 @@ import {
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 border-t border-border/60 bg-card/60">
+    <footer className="site-footer mt-24 border-t border-border/60 bg-card/60">
+      {festaAtivo() && (
+        <div
+          aria-hidden="true"
+          className="natal-pisca h-11 w-full bg-repeat-x"
+          style={{ backgroundImage: guirlanda(), backgroundSize: "360px 44px" }}
+        />
+      )}
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3 md:px-6">
         <div>
           <div className="flex items-center gap-3">
@@ -97,6 +106,13 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
+      {festaAtivo() && (
+        <p className="natal-brilho border-t border-border/60 px-4 py-4 text-center font-serif text-base italic text-primary-deep">
+          {reveillonAtivo()
+            ? `Feliz ${new Date().getFullYear() + 1}! Que o novo ano chegue com leveza e cuidado.`
+            : "Boas festas! Que o seu Natal seja de pausa e cuidado."}
+        </p>
+      )}
       <div className="border-t border-border/60">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 px-4 py-5 text-center text-xs text-muted-foreground md:flex-row md:justify-between md:px-6">
           <span>

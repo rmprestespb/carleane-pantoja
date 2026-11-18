@@ -92,3 +92,145 @@
     letter-spacing: -0.01em;
   }
 }
+
+
+/*
+ * TEMA DE NATAL — ativado pela classe "natal" no <html> (ver src/lib/natal.ts).
+ * Base da arte de Natal: creme quente, verde profundo e dourado.
+ * Só redefine cores e detalhes; os componentes continuam iguais.
+ */
+.natal {
+  --background: oklch(0.955 0.024 85);
+  --foreground: oklch(0.26 0.055 142);
+  --card: oklch(0.985 0.014 88);
+  --card-foreground: oklch(0.26 0.055 142);
+  --popover: oklch(0.985 0.014 88);
+  --popover-foreground: oklch(0.26 0.055 142);
+  --primary: oklch(0.34 0.075 142);
+  --primary-foreground: oklch(0.97 0.02 88);
+  --secondary: oklch(0.93 0.035 86);
+  --secondary-foreground: oklch(0.3 0.06 142);
+  --muted: oklch(0.935 0.03 86);
+  --muted-foreground: oklch(0.42 0.04 142);
+  --accent: oklch(0.91 0.055 88);
+  --accent-foreground: oklch(0.34 0.07 142);
+  --border: oklch(0.8 0.09 85);
+  --input: oklch(0.8 0.09 85);
+  --ring: oklch(0.68 0.13 78);
+  --cream: oklch(0.945 0.03 86);
+  --primary-deep: oklch(0.52 0.12 72);
+  --rose-soft: oklch(0.93 0.035 86);
+}
+
+/* Títulos com a serifa elegante da arte de Natal */
+.natal h1, .natal h2, .natal h3, .natal h4, .natal .font-serif {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.natal body {
+  background-image:
+    radial-gradient(70% 45% at 100% 100%, oklch(0.78 0.07 150 / 0.22), transparent 70%),
+    radial-gradient(60% 40% at 0% 0%, oklch(0.88 0.08 88 / 0.3), transparent 70%);
+  background-attachment: fixed;
+}
+
+/* Cabeçalho creme com linha dourada */
+.natal .site-header {
+  background-color: oklch(0.955 0.024 85);
+  border-bottom: 1px solid oklch(0.75 0.12 82 / 0.7);
+  box-shadow: 0 8px 30px -14px rgb(60 40 0 / 0.35);
+}
+
+/* Rodapé verde profundo com luzes douradas */
+.natal .site-footer {
+  --foreground: oklch(0.96 0.025 88);
+  --muted-foreground: oklch(0.86 0.03 90);
+  --border: oklch(0.55 0.09 95);
+  --primary: oklch(0.84 0.13 82);
+  --primary-deep: oklch(0.88 0.11 86);
+  background-color: oklch(0.24 0.06 142);
+  border-top: 0;
+  position: relative;
+}
+
+/* Áreas escuras (topo no celular): cores claras sobre verde profundo */
+.natal .natal-escuro {
+  --foreground: oklch(0.97 0.02 88);
+  --muted-foreground: oklch(0.88 0.03 90);
+  --primary: oklch(0.84 0.13 82);
+  --primary-foreground: oklch(0.24 0.06 142);
+  --primary-deep: oklch(0.88 0.11 86);
+  --accent: oklch(0.32 0.065 142);
+  --border: oklch(0.6 0.1 90);
+}
+
+/* Cards da home e das páginas: contorno dourado suave */
+.natal .natal-card {
+  border-color: oklch(0.78 0.11 84);
+  background-color: oklch(0.985 0.014 88);
+  box-shadow: 0 14px 34px -20px oklch(0.5 0.1 80 / 0.55);
+}
+.natal .natal-card:hover { border-color: oklch(0.7 0.13 80); }
+.natal .natal-ico {
+  background-color: oklch(0.3 0.07 142);
+  color: oklch(0.85 0.13 84);
+}
+
+/* "BENEFÍCIOS" com fios dourados dos dois lados */
+.natal .natal-eyebrow {
+  display: flex; align-items: center; gap: 0.9rem;
+  color: oklch(0.52 0.12 72);
+}
+.natal .natal-eyebrow::before, .natal .natal-eyebrow::after {
+  content: ""; height: 1px; width: 2.75rem; background: oklch(0.7 0.12 80);
+}
+
+/* Botão dourado reluzente */
+.natal .natal-cta {
+  background: linear-gradient(oklch(0.86 0.12 86), oklch(0.74 0.14 76));
+  color: oklch(0.24 0.06 142);
+  box-shadow: 0 10px 26px -10px oklch(0.55 0.14 75 / 0.8);
+}
+.natal .natal-cta:hover { filter: brightness(1.06); }
+
+/* Banner da frase: moldura dourada */
+.natal .natal-banner {
+  box-shadow: 0 0 0 2px oklch(0.78 0.12 84), 0 30px 70px -30px rgb(20 40 20 / 0.6);
+}
+
+/* Luzes da guirlanda piscando devagar */
+@keyframes natal-pisca {
+  0%, 100% { filter: drop-shadow(0 0 5px rgb(255 205 100 / 0.75)); opacity: 1; }
+  50% { filter: drop-shadow(0 0 2px rgb(255 205 100 / 0.3)); opacity: 0.82; }
+}
+.natal-pisca { animation: natal-pisca 3.2s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .natal-pisca { animation: none; } }
+
+/*
+ * RÉVEILLON (26/12 a 31/12): vem junto com a classe "natal" e só clareia o fundo e reforça o dourado.
+ */
+.reveillon {
+  --background: oklch(0.98 0.01 92);
+  --card: oklch(1 0.005 92);
+  --accent: oklch(0.93 0.06 90);
+  --border: oklch(0.78 0.12 86);
+  --primary-deep: oklch(0.5 0.12 75);
+}
+.reveillon body {
+  background-image:
+    radial-gradient(60% 40% at 0% 0%, oklch(0.9 0.1 90 / 0.4), transparent 70%),
+    radial-gradient(60% 40% at 100% 0%, oklch(0.9 0.1 90 / 0.35), transparent 70%);
+}
+.reveillon .site-header { background-color: oklch(0.985 0.008 92); }
+.natal-faixa {
+  background: linear-gradient(90deg, oklch(0.74 0.14 76), oklch(0.88 0.12 88), oklch(0.74 0.14 76));
+  color: oklch(0.24 0.06 142);
+}
+
+/* Card de desconto: entrada suave */
+@keyframes desconto-pop {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+.desconto-pop { animation: desconto-pop 0.35s ease-out both; }
+@media (prefers-reduced-motion: reduce) { .desconto-pop { animation: none; } }

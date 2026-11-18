@@ -18,7 +18,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/40 bg-background/70 shadow-[0_8px_30px_-18px_rgba(40,80,70,0.3)] backdrop-blur-md">
+    <header className="site-header sticky top-0 z-40 border-b border-border/40 bg-background/70 shadow-[0_8px_30px_-18px_rgba(40,80,70,0.3)] backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
         <Link to="/" className="group flex items-center gap-3">
           <img src={logoLotus} alt="" width={40} height={40} className="h-10 w-10 shrink-0 rounded-xl" />

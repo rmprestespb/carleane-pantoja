@@ -2,11 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { toast } from "sonner";
-import { CalendarCheck, CheckCircle2 } from "lucide-react";
+import { CalendarCheck, CheckCircle2, ExternalLink } from "lucide-react";
 import { z } from "zod";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 import { fetchServices, formatPrice, servicesQueryKey } from "@/lib/services";
 import { requestAppointment } from "@/lib/appointments";
+import { agendaGoogleAtiva, agendaGoogleEmbed, GOOGLE_AGENDA_URL } from "@/lib/agenda";
 
 export const Route = createFileRoute("/agendar")({
   head: () => ({
@@ -126,6 +127,41 @@ function AgendarPage() {
           o seu horário pelo WhatsApp.
         </p>
       </section>
+
+      {agendaGoogleAtiva() && (
+        <section className="mx-auto max-w-4xl px-4 pb-10 md:px-6">
+          <div className="rounded-3xl border border-border/60 bg-card p-4 shadow-[var(--shadow-soft)] md:p-6">
+            <div className="flex flex-wrap items-center justify-between gap-3 px-2 pb-4">
+              <div>
+                <h2 className="font-serif text-2xl text-foreground">
+                  Escolha seu horário na agenda
+                </h2>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Veja os horários livres e reserve na hora. Você recebe a confirmação por e-mail.
+                </p>
+              </div>
+              <a
+                href={GOOGLE_AGENDA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              >
+                Abrir em tela cheia
+                <ExternalLink className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+            <iframe
+              src={agendaGoogleEmbed()}
+              title="Agenda de horários disponíveis"
+              loading="lazy"
+              className="h-[640px] w-full rounded-2xl border border-border/60 bg-white"
+            />
+          </div>
+          <p className="mt-8 text-center text-sm text-muted-foreground">
+            Prefere que eu confirme pelo WhatsApp? Use o formulário abaixo.
+          </p>
+        </section>
+      )}
 
       <section className="mx-auto max-w-3xl px-4 pb-24 md:px-6">
         {done ? (
