@@ -198,6 +198,41 @@
   box-shadow: 0 0 0 2px oklch(0.78 0.12 84), 0 30px 70px -30px rgb(20 40 20 / 0.6);
 }
 
+/* Página "Sobre mim" no Natal: verde com árvore, enfeites e laço dourados nas laterais (arte de referência) */
+.natal .sobre-natal {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 8rem;
+  margin-bottom: -6rem; /* cobre o espaço entre a página e o rodapé */
+  color: var(--foreground);
+  background-color: oklch(0.3 0.07 148);
+  background-image:
+    radial-gradient(70% 55% at 50% 40%, oklch(0.36 0.08 148 / 0.8), transparent 75%),
+    linear-gradient(170deg, oklch(0.27 0.065 150), oklch(0.31 0.075 146) 55%, oklch(0.25 0.06 150));
+}
+.natal .sobre-natal h1,
+.natal .sobre-natal .font-serif { color: oklch(0.96 0.03 90); }
+.natal .sobre-natal .text-muted-foreground { color: oklch(0.92 0.025 90); }
+.natal .sobre-deco-esq,
+.natal .sobre-deco-dir { display: none; position: absolute; pointer-events: none; user-select: none; }
+@media (min-width: 900px) {
+  .natal .sobre-natal > .relative > section { padding-right: 5vw; }
+  .natal .sobre-deco-esq,
+  .natal .sobre-deco-dir { display: block; z-index: 0; }
+  .natal .sobre-deco-esq {
+    left: 0; top: 2.75rem; height: calc(100% - 2.75rem); width: auto; max-width: 26vw; object-fit: cover; object-position: left;
+    -webkit-mask-image: linear-gradient(to right, #000 55%, transparent);
+    mask-image: linear-gradient(to right, #000 55%, transparent);
+  }
+  .natal .sobre-deco-dir {
+    right: 0; top: 2.75rem; width: 22vw; max-width: 420px; height: auto;
+    -webkit-mask-image: linear-gradient(to left, #000 60%, transparent), linear-gradient(to bottom, #000 82%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to left, #000 60%, transparent), linear-gradient(to bottom, #000 82%, transparent);
+    mask-composite: intersect;
+  }
+}
+
 /* Luzes da guirlanda piscando devagar */
 @keyframes natal-pisca {
   0%, 100% { filter: drop-shadow(0 0 5px rgb(255 205 100 / 0.75)); opacity: 1; }

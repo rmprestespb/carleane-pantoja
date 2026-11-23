@@ -1,6 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Heart } from "lucide-react";
-import aboutPhoto from "../assets/about-carleane.jpg";
+import aboutPhotoNormal from "../assets/about-carleane.jpg";
+import aboutPhotoNatal from "../assets/about-carleane-natal.webp";
+import { natalAtivo } from "../lib/natal";
+import decoEsq from "../assets/natal-sobre-esq.webp";
+import decoDir from "../assets/natal-sobre-dir.webp";
+import { guirlanda } from "../components/NatalDecor";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
@@ -29,7 +34,9 @@ export const Route = createFileRoute("/sobre")({
 });
 
 function SobrePage() {
-  return (
+  const natal = natalAtivo();
+  const aboutPhoto = natal ? aboutPhotoNatal : aboutPhotoNormal;
+  const conteudo = (
     <section className="mx-auto max-w-6xl px-4 pt-16 md:px-6 md:pt-24">
       <div className="grid gap-12 md:grid-cols-2 md:items-center">
         <div className="relative order-2 md:order-1">
@@ -91,5 +98,21 @@ function SobrePage() {
         </div>
       </div>
     </section>
+  );
+
+  // No Natal: cenário verde-escuro com luzes douradas, no clima da tela inicial.
+  return natal ? (
+    <div className="natal-escuro sobre-natal">
+      <div
+        aria-hidden="true"
+        className="natal-pisca pointer-events-none absolute inset-x-0 top-0 h-11 bg-repeat-x"
+        style={{ backgroundImage: guirlanda(), backgroundSize: "360px 44px" }}
+      />
+      <img src={decoEsq} alt="" aria-hidden="true" width={547} height={1272} decoding="async" className="sobre-deco-esq" />
+      <img src={decoDir} alt="" aria-hidden="true" width={498} height={1096} decoding="async" className="sobre-deco-dir" />
+      <div className="relative z-10">{conteudo}</div>
+    </div>
+  ) : (
+    conteudo
   );
 }
