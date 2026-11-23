@@ -7,7 +7,7 @@
  * Quem usa o código avisa a Carleane pelo WhatsApp, e ela confere antes de dar o desconto.
  */
 export const DESCONTO = {
-  ATIVO: false,
+  ATIVO: true,
   /** Último dia em que o card aparece (AAAA-MM-DD). Use null para não ter fim. */
   ATE: "2026-12-31" as string | null,
   etiqueta: "Presente para você",
