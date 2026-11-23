@@ -213,6 +213,18 @@
 .natal .sobre-natal h1,
 .natal .sobre-natal .font-serif { color: oklch(0.96 0.03 90); }
 .natal .sobre-natal .text-muted-foreground { color: oklch(0.92 0.025 90); }
+/* "Atendimento humanizado e personalizado": card com moldura dourada */
+.natal .sobre-natal .sobre-selo {
+  border-radius: 1rem;
+  padding: 0.9rem 1.5rem;
+  font-size: 0.95rem;
+  background: linear-gradient(135deg, oklch(0.97 0.02 88 / 0.14), oklch(0.97 0.02 88 / 0.06));
+  border: 1px solid oklch(0.78 0.12 84);
+  box-shadow: 0 12px 30px -14px rgb(0 0 0 / 0.55), inset 0 1px 0 oklch(0.97 0.02 88 / 0.25);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.natal .sobre-natal .sobre-selo svg { color: oklch(0.84 0.13 82); }
 .natal .sobre-deco-esq,
 .natal .sobre-deco-dir { display: none; position: absolute; pointer-events: none; user-select: none; }
 @media (min-width: 900px) {

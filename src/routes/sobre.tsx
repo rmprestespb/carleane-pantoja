@@ -91,7 +91,7 @@ function SobrePage() {
             </p>
             <p>Cuidar do corpo é também cuidar de si.</p>
           </div>
-          <div className="mt-8 inline-flex items-center gap-3 rounded-full bg-accent/25 px-5 py-2.5 text-sm text-foreground">
+          <div className="sobre-selo mt-8 inline-flex items-center gap-3 rounded-full bg-accent/25 px-5 py-2.5 text-sm text-foreground">
             <Heart className="h-4 w-4 text-primary" aria-hidden="true" />
             Atendimento humanizado e personalizado
           </div>
